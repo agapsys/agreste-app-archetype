@@ -25,6 +25,7 @@ limitations under the License.
 	<packaging>maven-archetype</packaging>
 
 	<name>AGRESTE application archetype</name>
+	<description>Basic application based on Agapsys AGRESTE</description>
 	<url>https://github.com/agapsys/agreste-app-archetype</url>
 
 	<licenses>
