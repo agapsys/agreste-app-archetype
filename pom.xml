@@ -21,7 +21,7 @@ limitations under the License.
 
 	<groupId>com.agapsys.archetypes</groupId>
 	<artifactId>agreste-app-archetype</artifactId>
-	<version>3.0.0</version>
+	<version>4.0.0</version>
 	<packaging>maven-archetype</packaging>
 
 	<name>AGRESTE application archetype</name>
