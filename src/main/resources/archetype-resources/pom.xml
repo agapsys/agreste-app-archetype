@@ -13,89 +13,89 @@
     </properties>
 
     <dependencies>
-		<!-- Provided dependencies -->
-		<dependency>
+        <!-- Provided dependencies -->
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
 
-		<!-- Test dependencies -->
-		<dependency>
+        <!-- Test dependencies -->
+        <dependency>
             <groupId>com.agapsys.libs</groupId>
             <artifactId>agreste-test</artifactId>
             <version>[6.0.0, 7.0.0)</version>
             <scope>test</scope>
         </dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
 
-		<!-- Compile dependencies -->
+        <!-- Compile dependencies -->
         <dependency>
             <groupId>com.agapsys.libs</groupId>
             <artifactId>agreste</artifactId>
             <version>[6.0.0, 7.0.0)</version>
         </dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>[1.4.0, 1.5.0)</version>
-		</dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>[1.4.0, 1.5.0)</version>
+        </dependency>
     </dependencies>
 
     <build>
-		<!-- JPA filtering -->
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
-		<testResources>
-			<testResource>
-				<directory>src/test/resources</directory>
-				<filtering>true</filtering>
-			</testResource>
-		</testResources>
+        <!-- JPA filtering -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
 
         <plugins>
-			<!-- JPA scanner -->
-			<plugin>
-				<groupId>com.agapsys.plugins</groupId>
-				<artifactId>jpa-scanner-maven-plugin</artifactId>
-				<version>0.1.0</version>
-				<executions>
-					<execution>
-						<id>jpa-scanner</id>
-						<goals>
-							<goal>list</goal> <!-- inject JPA classes info filtered resources -->
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+            <!-- JPA scanner -->
+            <plugin>
+                <groupId>com.agapsys.plugins</groupId>
+                <artifactId>jpa-scanner-maven-plugin</artifactId>
+                <version>0.1.0</version>
+                <executions>
+                    <execution>
+                        <id>jpa-scanner</id>
+                        <goals>
+                            <goal>list</goal> <!-- inject JPA classes info filtered resources -->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
-			<!-- Controller scanner -->
-			<plugin>
-				<groupId>com.agapsys.plugins</groupId>
-				<artifactId>rcf-scanner-maven-plugin</artifactId>
-				<version>0.1.0</version>
-				<executions>
-					<execution>
-						<id>controller-scan</id>
-						<goals>
-							<goal>create</goal> <!-- creates META-INF/rcf.info -->
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+            <!-- Controller scanner -->
+            <plugin>
+                <groupId>com.agapsys.plugins</groupId>
+                <artifactId>rcf-scanner-maven-plugin</artifactId>
+                <version>0.1.0</version>
+                <executions>
+                    <execution>
+                        <id>controller-scan</id>
+                        <goals>
+                            <goal>create</goal> <!-- creates META-INF/rcf.info -->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
-			<!-- WAR Generation -->
-			<plugin>
+            <!-- WAR Generation -->
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
