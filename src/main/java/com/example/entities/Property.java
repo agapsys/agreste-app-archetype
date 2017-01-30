@@ -43,8 +43,9 @@ public class Property extends AbstractEntity<Property> implements Dto {
     public Long getId() {
         return id;
     }
-    public void setId(Long id) {
+    public Property setId(Long id) {
         this.id = id;
+        return this;
     }
     // -------------------------------------------------------------------------
 
@@ -55,9 +56,10 @@ public class Property extends AbstractEntity<Property> implements Dto {
     public User getOwner() {
         return owner;
     }
-    public void setOwner(User owner) {
+    public Property setOwner(User owner) {
         if (owner == null) throw new IllegalArgumentException("Null owner");
         this.owner = owner;
+        return this;
     }
     // -------------------------------------------------------------------------
 
@@ -67,11 +69,12 @@ public class Property extends AbstractEntity<Property> implements Dto {
     public String getKey() {
         return key;
     }
-    public void setKey(String key) throws IllegalArgumentException {
+    public Property setKey(String key) throws IllegalArgumentException {
         if (key == null || key.trim().isEmpty())
             throw new IllegalArgumentException("Null/Empty key");
 
         this.key = key;
+        return this;
     }
     // -------------------------------------------------------------------------
 
@@ -80,8 +83,9 @@ public class Property extends AbstractEntity<Property> implements Dto {
     public String getValue() {
         return value;
     }
-    public void setValue(String value) {
+    public Property setValue(String value) {
         this.value = value;
+        return this;
     }
     // -------------------------------------------------------------------------
 
