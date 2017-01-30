@@ -7,6 +7,7 @@ import com.agapsys.agreste.test.TestUtils.JsonEndpoint;
 import com.agapsys.http.HttpClient;
 import com.agapsys.http.HttpResponse.StringResponse;
 import com.agapsys.http.utils.Pair;
+import com.agapsys.rcf.Controller;
 import com.agapsys.rcf.HttpMethod;
 import com.example.TestApplication;
 import com.example.controllers.UserController.LoginFormDto;
@@ -46,6 +47,8 @@ public class UserControllerTest {
 
         StringResponse resp = sc.doRequest(client, endpoint.getRequest(dto));
         TestUtils.assertStatus(200, resp);
+        
+        client.addDefaultHeader(Controller.CSRF_HEADER, resp.getFirstHeader(Controller.CSRF_HEADER).getValue());
 
         return new LoginInfo(client, TestUtils.readJsonObject(UserDto.class, resp));
     }
