@@ -120,7 +120,7 @@ public class PropertyControllerTest {
         resp = ac.doRequest(loginInfo.getHttpClient(), endpoint.getRequest());
         TestUtils.assertErrorStatus(400, "Missing parameter: id", resp);
         resp = ac.doRequest(loginInfo.getHttpClient(), endpoint.getRequest("id=%s", ""));
-        TestUtils.assertErrorStatus(400, "Missing parameter: id", resp);
+        TestUtils.assertErrorStatus(400, "Cannot convert \"\" into java.lang.Long", resp);
 
         // Id not found...
         resp = ac.doRequest(loginInfo.getHttpClient(), endpoint.getRequest("id=%s", 18)); // <-- initially, there is no properties
