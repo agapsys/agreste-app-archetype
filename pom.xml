@@ -149,38 +149,23 @@
                 </executions>
             </plugin>
             
-            <!-- build-helper-maven-plugin -->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.12</version>
-
-				<executions>
-					<execution>
-                        <id>add-source</id>
-						<goals>
-							<goal>add-source</goal>
-						</goals>
-						<configuration>
-							<sources>
-								<source>../agreste-lib-seed/src/main/java</source>
-							</sources>
-						</configuration>
-					</execution>
+            <!-- Archetype generation -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-archetype-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
                     <execution>
-                        <id>add-test-source</id>
-						<goals>
-							<goal>add-test-source</goal>
-						</goals>
-						<configuration>
-							<sources>
-								<source>../agreste-lib-seed/src/test/java</source>
-							</sources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
+                        <phase>install</phase>
+                        <goals>
+                            <goal>create-from-project</goal>
+                        </goals>
+                        <configuration>
+                            <propertyFile>archetype.properties</propertyFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
