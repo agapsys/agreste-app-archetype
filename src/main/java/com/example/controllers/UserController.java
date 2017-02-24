@@ -60,17 +60,17 @@ public class UserController extends AgresteController {
         User user = new FindBuilder<>(User.class).by("username", loginFormDto.username).findFirst(getJpaTransaction(request).getEntityManager());
 
         if (user == null || !user.isPasswordValid(loginFormDto.password)) {
-            registerUser(request, response, null);
+            setUser(request, response, null);
             throw new ForbiddenException("Invalid credentials");
         }
 
-        registerUser(request, response, user);
+        setUser(request, response, user);
         return user;
     }
 
     @WebAction
     public void logout(ActionRequest request, ActionResponse response) throws ServletException, IOException {
-        registerUser(request, response, null);
+        setUser(request, response, null);
     }
 
     @WebAction(secured = true)
