@@ -14,7 +14,7 @@ public class Application extends AgresteApplication {
     }
 
     @Override
-    public String getName() {
+    public String getRootName() {
         return Defs.APP_NAME;
     }
 
