@@ -4,9 +4,9 @@
 
     <name>AGRESTE (Seed Application)</name>
 
-    <groupId>com.example</groupId>
+    <groupId>com.agapsys.example</groupId>
     <artifactId>agreste-app-seed</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.0-20170330</version>
     
     <packaging>war</packaging>
 
@@ -76,7 +76,7 @@
             <plugin>
                 <groupId>com.agapsys</groupId>
                 <artifactId>jpa-scanner-maven-plugin</artifactId>
-                <version>0.1.0</version>
+                <version>0.1.0-20170330</version>
                 <executions>
                     <execution>
                         <id>jpa-scanner</id>
@@ -91,7 +91,7 @@
             <plugin>
                 <groupId>com.agapsys</groupId>
                 <artifactId>rcf-scanner-maven-plugin</artifactId>
-                <version>0.1.0</version>
+                <version>0.1.0-20170322</version>
                 <executions>
                     <execution>
                         <id>controller-scan</id>
