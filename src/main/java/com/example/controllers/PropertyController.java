@@ -27,7 +27,7 @@ public class PropertyController extends AgresteController {
     @Override
     protected void onControllerInit() {
         super.onControllerInit();
-        propertyService = getService(PropertyService.class);
+        propertyService = getServiceOnDemand(PropertyService.class);
     }
 
     @WebAction(secured = true)
@@ -63,7 +63,7 @@ public class PropertyController extends AgresteController {
     public void delete(ActionRequest request) throws ServletException, IOException {
         final String PARAM_ID = "id";
         Long id = request.getMandatoryParameter(Long.class, PARAM_ID);
-        
+
         if (propertyService.delete(getJpaTransaction(request), (User) getUser(request), id) == 0)
             throw new NotFoundException("ID not found: %d", id);
     }

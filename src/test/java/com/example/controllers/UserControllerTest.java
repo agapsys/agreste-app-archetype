@@ -9,7 +9,7 @@ import com.agapsys.http.HttpResponse.StringResponse;
 import com.agapsys.http.utils.Pair;
 import com.agapsys.rcf.Controller;
 import com.agapsys.rcf.HttpMethod;
-import com.example.TestApplication;
+import com.example.Application;
 import com.example.controllers.UserController.LoginFormDto;
 import com.example.entities.User.UserDto;
 import org.junit.After;
@@ -18,7 +18,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class UserControllerTest {
-    
+
     // <editor-fold desc="STATIC SCOPE">
     // =========================================================================
     public static class LoginInfo extends Pair<HttpClient, UserDto> {
@@ -47,7 +47,7 @@ public class UserControllerTest {
 
         StringResponse resp = sc.doRequest(client, endpoint.getRequest(dto));
         TestUtils.assertStatus(200, resp);
-        
+
         client.addDefaultHeader(Controller.CSRF_HEADER, resp.getFirstHeader(Controller.CSRF_HEADER).getValue());
 
         return new LoginInfo(client, TestUtils.readJsonObject(UserDto.class, resp));
@@ -59,7 +59,7 @@ public class UserControllerTest {
 
     @Before
     public void before() {
-        ac = new AgresteContainer<>(TestApplication.class);
+        ac = new AgresteContainer<>(Application.class);
         ac.start();
     }
 

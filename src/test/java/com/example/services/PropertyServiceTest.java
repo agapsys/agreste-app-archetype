@@ -28,7 +28,7 @@ public class PropertyServiceTest {
         ac.start();
         em = TestUtils.getApplicationEntityManager();
         jpa = new MockedTransaction(TestUtils.getApplicationEntityManager());
-        propertyService = TestUtils.getApplicationService(PropertyService.class);
+        propertyService = TestUtils.getApplicationService(PropertyService.class, true);
     }
 
     @After

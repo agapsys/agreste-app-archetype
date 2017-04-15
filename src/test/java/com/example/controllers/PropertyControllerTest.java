@@ -8,7 +8,7 @@ import com.agapsys.agreste.test.TestUtils.JsonEndpoint;
 import com.agapsys.http.HttpResponse.StringResponse;
 import com.agapsys.jpa.FindBuilder;
 import com.agapsys.rcf.HttpMethod;
-import com.example.TestApplication;
+import com.example.Application;
 import com.example.controllers.UserControllerTest.LoginInfo;
 import com.example.entities.Property;
 import com.example.entities.Property.PropertyDto;
@@ -21,7 +21,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class PropertyControllerTest {
-    
+
     // <editor-fold desc="STATIC SCOPE">
     // =========================================================================
     public static Property createProperty(EntityManager em, long userId, String key, String value) {
@@ -35,13 +35,13 @@ public class PropertyControllerTest {
     }
     // =========================================================================
     // </editor-fold>
-    
+
     private AgresteContainer ac;
     private EntityManager em;
 
     @Before
     public void before() {
-        ac = new AgresteContainer<>(TestApplication.class);
+        ac = new AgresteContainer<>(Application.class);
         ac.start();
         em = TestUtils.getApplicationEntityManager();
     }

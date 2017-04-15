@@ -1,7 +1,7 @@
 package com.example;
 
 import com.agapsys.agreste.AgresteApplication;
-import com.agapsys.web.toolkit.modules.PersistenceModule;
+import com.agapsys.agreste.PersistenceService;
 import com.example.entities.User;
 import javax.persistence.EntityManager;
 import javax.servlet.annotation.WebListener;
@@ -25,10 +25,10 @@ public class Application extends AgresteApplication {
 
 
     @Override
-    protected void afterAgresteStart() {
-        super.afterAgresteStart();;
+    protected void onStart() {
+        super.onStart();
 
-        EntityManager em = getModule(PersistenceModule.class).getEntityManager();
+        EntityManager em = getRegisteredService(PersistenceService.class).getEntityManager();
         em.getTransaction().begin();
 
         User.findOrCreate(em, "username", "password", Roles.SAMPLE_ROLE);
