@@ -6,7 +6,7 @@
 
     <groupId>com.agapsys.example</groupId>
     <artifactId>agreste-app-seed</artifactId>
-    <version>0.1.0-20170415</version>
+    <version>0.1.0-20170508</version>
     
     <packaging>war</packaging>
 
@@ -70,7 +70,7 @@
         <dependency>
             <groupId>com.agapsys</groupId>
             <artifactId>agreste-core</artifactId>
-            <version>[0.1.0-20170415, 1.0.0)</version>
+            <version>[0.1.0-20170508, 1.0.0)</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
