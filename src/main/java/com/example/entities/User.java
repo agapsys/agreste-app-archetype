@@ -18,7 +18,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 @Entity(name = "usr")
 public class User extends AbstractEntity<User> implements com.agapsys.rcf.User, Dto {
-    
+
     // <editor-fold desc="STATIC SCOPE">
     // =========================================================================
     public static class UserDto {
@@ -151,6 +151,19 @@ public class User extends AbstractEntity<User> implements com.agapsys.rcf.User, 
     }
     public void clearRoles() {
         getRoles().clear();
+    }
+    // -------------------------------------------------------------------------
+
+    // Permissions
+    private long permissions;
+
+    @Override
+    public long getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(long permissions) {
+        this.permissions = permissions;
     }
     // -------------------------------------------------------------------------
 

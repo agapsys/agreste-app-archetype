@@ -48,7 +48,7 @@ public class UserControllerTest {
         StringResponse resp = sc.doRequest(client, endpoint.getRequest(dto));
         TestUtils.assertStatus(200, resp);
 
-        client.addDefaultHeader(Controller.CSRF_HEADER, resp.getFirstHeader(Controller.CSRF_HEADER).getValue());
+        client.addDefaultHeader(Controller.XSRF_HEADER, resp.getCookie(Controller.XSRF_COOKIE).value);
 
         return new LoginInfo(client, TestUtils.readJsonObject(UserDto.class, resp));
     }
